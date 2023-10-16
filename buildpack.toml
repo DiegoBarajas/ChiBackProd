@@ -1,0 +1,23 @@
+# Nombre del buildpack
+name = "whatsapp-manager-backend"
+
+# Versión del buildpack
+version = "prerelease 0.80.0"
+
+# Dependencias del buildpack
+dependencies = [
+  "npm@latest"
+]
+
+# Pasos del buildpack
+[[buildpack.buildpacks]]
+id = "npm"
+version = "latest"
+
+[[buildpack.buildpacks]]
+id = "node-modules"
+version = "latest"
+
+# Comando para ejecutar la API
+[[buildpack.run]]
+command = "node ./src/index.js"
