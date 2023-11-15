@@ -122,7 +122,7 @@ ctrl.getAllByDelivery = async(req, res) => {
         });
 
     if(!error){
-        res.json(await Reparaciones.find({ id_repartidor: id }));
+        res.json(await Reparaciones.find({ id_repartidor: id, state: { $ne: 12 } }));
     }
 }
 
@@ -132,6 +132,15 @@ ctrl.addAbono = async(req, res) => {
 
     res.json(await Reparaciones.findByIdAndUpdate(id, {
         abono: abono
+    }));
+}
+
+ctrl.addNota = async(req, res) => {
+    const {id} = req.params;
+    const {nota} = req.body;
+
+    res.json(await Reparaciones.findByIdAndUpdate(id, {
+        nota: nota
     }));
 
 }

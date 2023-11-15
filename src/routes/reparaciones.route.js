@@ -15,6 +15,9 @@ router.route('/pictures/:id')
 router.route('/abono/:id')
     .put(controller.addAbono)
 
+router.route('/nota/:id')
+    .put(controller.addNota)
+
 router.route('/delivery/:id')
     .get(controller.getAllByDelivery)
     .put(controller.asignToDelivery)

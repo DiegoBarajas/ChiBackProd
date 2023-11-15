@@ -5,7 +5,6 @@ const app = express();
 const fileUpload = require("express-fileupload");
 const bodyParser = require('body-parser');
 const cloudinary = require('cloudinary').v2;
-          
 
 //Middlewares
 dotenv.config();
@@ -43,7 +42,8 @@ app.use('/api/reparations', require('./routes/reparaciones.route'));
 app.use('/api/users', require('./routes/user.route'));
 app.use('/api/inventory', require('./routes/inventory.route'));
 app.use('/api/selled', require('./routes/selled.route'));
-
+app.use('/api/finanzas', require('./routes/finanzas.route'));
+//app.use('/api/whatsapp', require('./routes/whatsapp.route'));
 
 app.use('/file/excel', require('./routes/excel.route'));
 

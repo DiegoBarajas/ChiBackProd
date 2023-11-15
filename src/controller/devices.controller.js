@@ -117,5 +117,11 @@ ctrl.delete = async(req, res)=>{
     res.json(del);
 }
 
+ctrl.getById = async(req, res) => {
+    const {id} = req.params;
+
+    res.json( await Devices.findById(id) );
+}
+
 
 module.exports = ctrl;

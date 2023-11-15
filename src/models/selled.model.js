@@ -16,6 +16,7 @@ const schema = new Schema({
     date: {type: String, required: true},
     referido: {type: String, required: false},
     comision: {type: Number, required: false},
+    folio: {type: String, required: true},
     
     garantias: {type: Array, required: false},
     liquited: {type: Boolean, required: true},

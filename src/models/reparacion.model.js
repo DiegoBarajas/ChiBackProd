@@ -17,7 +17,8 @@ const schema = new Schema({
     abono: {type: Number, default: 0},
     pics1: {type: Array, required: false},
     pics2: {type: Array, required: false},
-    pics3: {type: Array, required: false}
+    pics3: {type: Array, required: false},
+    nota: {type: String, required: false}
 },{
     timestamps: true
 });

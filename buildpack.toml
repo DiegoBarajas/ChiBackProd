@@ -2,7 +2,7 @@
 name = "whatsapp-manager-backend"
 
 # Versión del buildpack
-version = "prerelease 0.80.0"
+version = "0.1.1"
 
 # Dependencias del buildpack
 dependencies = [

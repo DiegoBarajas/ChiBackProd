@@ -1,5 +1,5 @@
 const User = require('../models/user.model');
-const { sendTextMail } = require('../sendMail');
+const { sendHTMLMail } = require('../sendMail');
 const ctrl = {};
 
 ctrl.createAccount = async(req, res) => {
@@ -78,11 +78,18 @@ ctrl.generatePassword = async(req, res) => {
             error = true;
         })
 
+        const HTML = `
+        <h3>Hola, aqui esta tu contraseña para iniciar sesión:</h3>
+        <h4>${pass}</h4>
+
+        <button><a href="https://dash-chipsi.vercel.app/login/${email}/${pass}"><h4>Redireccionar automaticamente</h4></a></button>
+`
+
         if(!error){
-            await sendTextMail(
+            await sendHTMLMail(
                 user.email, 
                 'Contraseña de Chipsi', 
-                pass,
+                HTML,
                 (response) => res.json({ success: true, message: response }),
                 (error) => res.json({ success: false, message: error })
             )

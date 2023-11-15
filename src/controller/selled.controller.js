@@ -41,6 +41,7 @@ controller.create = async(req, res) => {
         characteristics: inventory.characteristics,
         description: inventory.description,
         price: inventory.price,
+        folio: await generarFolioUnico(),
 
         buyer, 
         phone,
@@ -218,4 +219,25 @@ function hasPasedAYear(date1, date2){
         } else {
             return false;
         }
+}
+
+
+async function generarFolioUnico() {
+    let folio;
+    let folioRepetido = true;
+        
+    while (folioRepetido) {
+        // Genera un folio aleatorio de 10 dígitos
+        folio = Math.floor(1000000000 + Math.random() * 9000000000).toString();
+        
+        // Verifica si el folio ya existe en la base de datos
+        const existeFolio = await Selled.exists({ folio });
+        
+        // Si no existe, salimos del bucle
+        if (!existeFolio) {
+        folioRepetido = false;
+        }
+    }
+        
+    return folio;
 }

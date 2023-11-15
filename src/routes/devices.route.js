@@ -7,6 +7,7 @@ router.route('/')
     .post(Device.add)
 
 router.route('/:id')
+    .get(Device.getById)
     .put(Device.update)
     .delete(Device.delete)
 
