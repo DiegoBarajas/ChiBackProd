@@ -76,19 +76,110 @@ ctrl.generatePassword = async(req, res) => {
             })
 
             error = true;
-        })
+        })       
 
-        const HTML = `
-        <h3>Hola, aqui esta tu contraseña para iniciar sesión:</h3>
-        <h4>${pass}</h4>
+        const HTML = 
+`
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Correo Chipsi</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
 
-        <button><a href="https://dash-chipsi.vercel.app/login/${email}/${pass}"><h4>Redireccionar automaticamente</h4></a></button>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                font-family: 'Outfit', sans-serif;
+            }
+
+            .header{
+                width: 100%;
+                background-color: #5BDCB7;
+                border-radius: 0px 0px 20px 20px;
+            }
+
+            .img-header{
+                width: 200px;
+                margin: auto;
+                display: block;
+            }
+
+            .h2-header {
+                margin-top: 20px;
+                margin-bottom: 10px;
+                color: white;
+                width: 100%;
+                text-align: center;
+            }
+
+            .p-header {
+                color: white;
+                font-weight: bold;
+                width: 100%;
+                text-align: center;
+            }
+
+            .content{
+                width: 100%;
+            }
+
+            .p-passwd { 
+                margin-top: 30px;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .button {
+                background-color: #5BDCB7;
+                border-radius: 100%;
+                color: white;
+                border: none;
+                font-size: 15px;
+                padding: 20px;
+                cursor: pointer;
+                font-weight: bold;
+
+                display: block;
+                margin: auto;
+            }
+
+            .addr {
+                color: white;
+                font-size: 20px;
+                text-decoration: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <br><br>
+            <img src="https://res.cloudinary.com/dzajaf1mv/image/upload/v1700224283/general/sqhfafmt5ve5kjjltsv3.jpg" alt="Chipsi Logo" class="img-header">
+            <br>
+            <h2 class="h2-header">Hola!</h2>
+            <p class="p-header">Aqui esta tu contraseña temporal para tu inicio de sesión:</p>
+            <br>
+        </div>
+
+        <div class="content">
+            <p class="p-passwd">${pass}</p>
+            <br><br>
+            <button class="button"><a style="color: white; text-decoration: none" class="addr" href="https://dash-chipsi.vercel.app/login/${email}/${pass}">Redireccionar automaticamente</a></button>
+        </div>
+
+    </body>
+</html>
 `
 
         if(!error){
             await sendHTMLMail(
                 user.email, 
-                'Contraseña de Chipsi', 
+                'Contraseña de incio de sesión para Chipsi', 
                 HTML,
                 (response) => res.json({ success: true, message: response }),
                 (error) => res.json({ success: false, message: error })

@@ -1,6 +1,6 @@
 # Nombre y versión del buildpack
 name = "whatsapp-manager-backend"
-version = "2023.11.16t3"
+version = "2023.11.17t1"
 
 # Dependencias del buildpack
 dependencies = [
