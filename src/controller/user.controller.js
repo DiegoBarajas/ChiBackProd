@@ -136,7 +136,7 @@ ctrl.generatePassword = async(req, res) => {
 
             .button {
                 background-color: #5BDCB7;
-                border-radius: 100%;
+                border-radius: 100px;
                 color: white;
                 border: none;
                 font-size: 15px;
