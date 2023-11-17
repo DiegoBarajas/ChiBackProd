@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-manager-backend",
-  "version": "2023.11.16t2",
+  "version": "2023.11.16t3",
   "description": "",
   "main": "index.js",
   "scripts": {

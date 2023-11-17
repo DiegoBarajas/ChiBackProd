@@ -1,38 +1,16 @@
 # Nombre y versión del buildpack
 name = "whatsapp-manager-backend"
-version = "2023.11.16t2"
+version = "2023.11.16t3"
 
 # Dependencias del buildpack
 dependencies = [
-  "npm@latest"
+  "nodejs"
 ]
 
-# Buildpacks necesarios
 [[buildpacks]]
-id = "nodejs"
-version = "latest"
-
-[[buildpacks]]
-id = "npm"
-version = "latest"
-
-[[buildpack.buildpacks]]
-id = "node-modules"
-version = "latest"
+id = "fl0/nodejs"
+version = "18.x"  # Especifica la versión de Node.js que necesites, por ejemplo "14.x"
 
 # Comando para ejecutar la API
 [[run]]
 command = "npm start"
-
-# Comando para ejecutar la API
-[[buildpack.run]]
-command = "node ./src/index.js"
-
-# build
-build = "npm install"
-
-# install
-install = "npm install"
-
-# start
-start = "npm start"
