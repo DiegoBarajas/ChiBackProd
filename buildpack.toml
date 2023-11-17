@@ -7,10 +7,20 @@ dependencies = [
   "nodejs"
 ]
 
-[[buildpacks]]
-id = "fl0/nodejs"
-version = "18.x"  # Especifica la versión de Node.js que necesites, por ejemplo "14.x"
-
-# Comando para ejecutar la API
 [[run]]
 command = "npm start"
+
+[[buildpacks]]
+  id = "fl/heroku/nodejs"
+
+[[buildpacks]]
+  id = "fl/heroku/npm"
+
+[build]
+  command = "npm install"
+
+[dev]
+  command = "npm run dev"
+
+[web]
+  command = "npm start"
