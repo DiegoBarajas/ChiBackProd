@@ -134,24 +134,22 @@ ctrl.generatePassword = async(req, res) => {
                 text-align: center;
             }
 
-            .button {
+            .addr {
                 background-color: #5BDCB7;
                 border-radius: 100px;
                 color: white;
                 border: none;
                 font-size: 15px;
-                padding: 20px;
+                padding: 15px;
                 cursor: pointer;
                 font-weight: bold;
-
                 display: block;
                 margin: auto;
-            }
-
-            .addr {
                 color: white;
                 font-size: 20px;
                 text-decoration: none;
+                text-align: center;
+                width: max-content;
             }
             
         </style>
@@ -169,7 +167,7 @@ ctrl.generatePassword = async(req, res) => {
         <div class="content">
             <p class="p-passwd">${pass}</p>
             <br><br>
-            <button class="button"><a style="color: white; text-decoration: none" class="addr" href="https://dash-chipsi.vercel.app/login/${email}/${pass}">Redireccionar automaticamente</a></button>
+            <a style="color: white; text-decoration: none" class="addr" href="https://dash-chipsi.vercel.app/login/${email}/${pass}">Redireccionar automaticamente</a>
         </div>
 
     </body>
