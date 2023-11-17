@@ -130,7 +130,7 @@ ctrl.generatePassword = async(req, res) => {
 
             .p-passwd { 
                 margin-top: 30px;
-                font-size: 20px;
+                font-size: 25px;
                 text-align: center;
             }
 
